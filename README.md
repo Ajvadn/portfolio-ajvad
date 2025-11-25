@@ -2,7 +2,7 @@
 
 A modern, high-performance personal portfolio website built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). This portfolio showcases my journey as a Cybersecurity Analyst and Ethical Hacker, featuring my projects, certifications, and educational background.
 
-Live Preview : https://vercel.com/ajvadns-projects/portfolio-ajvad/8umvzTMLhmMxAkQGPzMrGqs4s41h
+Live Preview : https://portfolio-ajvad-n.vercel.app
 
 ## 🚀 Features
 

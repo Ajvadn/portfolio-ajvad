@@ -2,8 +2,6 @@
 
 A modern, high-performance personal portfolio website built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). This portfolio showcases my journey as a Cybersecurity Analyst and Ethical Hacker, featuring my projects, certifications, and educational background.
 
-![Portfolio Preview](/public/profile.jpg)
-
 ## 🚀 Features
 
 -   **Modern "Midnight Slate" Theme**: A sleek, dark-themed design optimized for visual comfort and professional appeal.

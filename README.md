@@ -1,43 +1,88 @@
-# Astro Starter Kit: Minimal
+# AJVAD N. - Cybersecurity Analyst Portfolio
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+A modern, high-performance personal portfolio website built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). This portfolio showcases my journey as a Cybersecurity Analyst and Ethical Hacker, featuring my projects, certifications, and educational background.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Portfolio Preview](/public/profile.jpg)
 
-## 🚀 Project Structure
+## 🚀 Features
 
-Inside of your Astro project, you'll see the following folders and files:
+-   **Modern "Midnight Slate" Theme**: A sleek, dark-themed design optimized for visual comfort and professional appeal.
+-   **Interactive Animations**:
+    -   **Glitch Effect**: Applied to the main heading for a cyberpunk/security aesthetic.
+    -   **Typewriter Effect**: Dynamic text animation in the hero section.
+    -   **Scroll Reveal**: Smooth fade-in and slide-up animations as you scroll.
+-   **Responsive Design**: Fully responsive layout that looks great on mobile, tablet, and desktop devices.
+-   **Performance First**: Built with Astro for lightning-fast load times and minimal JavaScript.
+-   **Modular Components**: Clean code structure using Astro components for easy maintenance and scalability.
+
+## 🛠️ Tech Stack
+
+-   **Framework**: [Astro](https://astro.build)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com)
+-   **Icons**: [Lucide React](https://lucide.dev)
+-   **Fonts**: [Outfit](https://fonts.google.com/specimen/Outfit) (Google Fonts)
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
+├── public/             # Static assets (images, favicon, resume)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Reusable UI components (Hero, About, Projects, etc.)
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Application pages (index.astro)
+│   └── styles/         # Global styles (CSS variables, animations)
+├── astro.config.mjs    # Astro configuration
+└── tailwind.config.mjs # Tailwind CSS configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 💻 Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Prerequisites
 
-Any static assets, like images, can be placed in the `public/` directory.
+-   Node.js (v18.14.1 or higher)
+-   npm, pnpm, or yarn
 
-## 🧞 Commands
+### Installation
 
-All commands are run from the root of the project, from a terminal:
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Ajvadn/portfolio-ajvad.git
+    cd portfolio-ajvad
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-## 👀 Want to learn more?
+3.  **Start the development server**:
+    ```bash
+    npm run dev
+    ```
+    The site will be available at `http://localhost:4321`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The output will be in the `dist/` directory, ready for deployment.
+
+## 📝 Customization
+
+-   **Personal Details**: Update `src/components/Hero.astro`, `About.astro`, and `Contact.astro`.
+-   **Projects**: Edit the `projects` array in `src/components/Projects.astro`.
+-   **Certifications**: Update `src/components/Certifications.astro`.
+-   **Education**: Update `src/components/Education.astro`.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Designed & Built by **Ajvad N.**

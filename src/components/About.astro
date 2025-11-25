@@ -1,0 +1,57 @@
+---
+import Badge from './ui/Badge.astro';
+
+const skills = [
+  "Network Security", "Penetration Testing", "Python", "Linux", 
+  "Bash Scripting", "Wireshark", "Burp Suite", "Metasploit"
+];
+
+const experience = [
+  {
+    role: "Cyber Security Intern",
+    company: "The Red Users",
+    period: "March 2024 - May 2024",
+    desc: "Vulnerability assessments, OWASP ZAP, Burp Suite, Threat Analysis."
+  }
+];
+---
+
+<section id="about" class="py-32 px-4 relative reveal">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(180px,auto)]">
+      
+      <!-- Bio Block -->
+      <div class="md:col-span-8 p-8 border border-primary/10 relative group hover:border-secondary/30 transition-colors duration-500">
+        <h2 class="text-4xl font-bold mb-6 text-primary">About Me</h2>
+        <p class="text-xl text-muted leading-relaxed max-w-2xl">
+          I'm a cybersecurity analyst passionate about securing digital infrastructures. 
+          My work bridges the gap between <span class="text-primary font-medium">offensive security</span> and 
+          <span class="text-primary font-medium">defensive strategies</span>.
+        </p>
+      </div>
+
+      <!-- Stat Block 1 -->
+      <div class="md:col-span-4 p-8 border border-primary/10 flex flex-col justify-between group hover:border-secondary/30 transition-colors duration-500">
+        <span class="text-sm text-muted uppercase tracking-widest">Experience</span>
+        <span class="text-4xl md:text-5xl font-bold text-primary">Fresher</span>
+      </div>
+
+      <!-- Skills Block -->
+      <div class="md:col-span-5 p-8 border border-primary/10 group hover:border-secondary/30 transition-colors duration-500">
+        <span class="text-sm text-muted uppercase tracking-widest mb-8 block">Core Skills</span>
+        <div class="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <Badge text={skill} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Focus Block -->
+      <div class="md:col-span-7 p-8 border border-primary/10 flex flex-col justify-end group hover:border-secondary/30 transition-colors duration-500">
+        <h3 class="text-2xl font-bold text-primary mb-2">Security Research</h3>
+        <p class="text-muted">Constantly exploring new vulnerabilities and patch methodologies.</p>
+      </div>
+
+    </div>
+  </div>
+</section>

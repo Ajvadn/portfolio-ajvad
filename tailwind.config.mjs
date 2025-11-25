@@ -9,8 +9,8 @@ export default {
                 secondary: '#a1a1aa',
             },
             fontFamily: {
-                sans: ['"Latin Modern Mono"', 'monospace'],
-                heading: ['"Latin Modern Mono"', 'monospace'],
+                sans: ['"LMMono10"', 'monospace'],
+                heading: ['"LMMono10"', 'monospace'],
             },
         },
     },

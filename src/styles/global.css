@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.cdnfonts.com/css/latin-modern-mono');
 
 @theme {
     --color-background: #000000;
@@ -10,8 +9,8 @@
     /* Teal 400 */
     --color-muted: #94a3b8;
     /* Slate 400 */
-    --font-sans: 'Latin Modern Mono', monospace;
-    --font-heading: 'Latin Modern Mono', monospace;
+    --font-sans: 'LMMono10', monospace;
+    --font-heading: 'LMMono10', monospace;
 }
 
 @layer base {

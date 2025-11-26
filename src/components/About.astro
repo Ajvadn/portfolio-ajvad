@@ -8,10 +8,10 @@ const skills = [
 
 const experience = [
   {
-    role: "Cyber Security Intern",
-    company: "The Red Users",
-    period: "March 2024 - May 2024",
-    desc: "Vulnerability assessments, OWASP ZAP, Burp Suite, Threat Analysis."
+    role: "Cybersecurity Intern",
+    company: "The RedUsers",
+    period: "July - August",
+    desc: "2 months internship"
   }
 ];
 ---
@@ -30,10 +30,15 @@ const experience = [
         </p>
       </div>
 
-      <!-- Stat Block 1 -->
+      <!-- Experience Block -->
       <div class="md:col-span-4 p-8 border border-primary/10 flex flex-col justify-between group hover:border-secondary/30 transition-colors duration-500">
         <span class="text-sm text-muted uppercase tracking-widest">Experience</span>
-        <span class="text-4xl md:text-5xl font-bold text-primary">Fresher</span>
+        <div class="mt-4">
+            <h3 class="text-xl font-bold text-primary">{experience[0].role}</h3>
+            <p class="text-secondary">{experience[0].company}</p>
+            <p class="text-sm text-muted mt-1">{experience[0].period}</p>
+            <p class="text-sm text-muted mt-2">{experience[0].desc}</p>
+        </div>
       </div>
 
       <!-- Skills Block -->

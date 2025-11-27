@@ -4,13 +4,13 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: '#0a0a0a',
-                primary: '#ffffff',
-                secondary: '#a1a1aa',
+                background: '#000000',
+                primary: '#f1f5f9',
+                secondary: '#2dd4bf',
             },
             fontFamily: {
-                sans: ['"LMMono10"', 'monospace'],
-                heading: ['"LMMono10"', 'monospace'],
+                sans: ['"Latin Modern Mono"', 'monospace'],
+                heading: ['"Latin Modern Mono"', 'monospace'],
             },
         },
     },

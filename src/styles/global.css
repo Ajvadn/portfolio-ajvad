@@ -9,8 +9,44 @@
     /* Teal 400 */
     --color-muted: #94a3b8;
     /* Slate 400 */
-    --font-sans: 'LMMono10', monospace;
-    --font-heading: 'LMMono10', monospace;
+    --font-sans: 'Latin Modern Mono', monospace;
+    --font-heading: 'Latin Modern Mono', monospace;
+}
+
+/* Latin Modern Mono - Regular */
+@font-face {
+    font-family: 'Latin Modern Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/lmmono10-regular.woff') format('woff');
+}
+
+/* Latin Modern Mono - Italic */
+@font-face {
+    font-family: 'Latin Modern Mono';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/lmmono10-italic.woff') format('woff');
+}
+
+/* Latin Modern Mono - Bold */
+@font-face {
+    font-family: 'Latin Modern Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/lmmonolt10-bold.woff') format('woff');
+}
+
+/* Latin Modern Mono - Bold Italic */
+@font-face {
+    font-family: 'Latin Modern Mono';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/lmmonolt10-boldoblique.woff') format('woff');
 }
 
 @layer base {

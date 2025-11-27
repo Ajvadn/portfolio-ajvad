@@ -8,6 +8,8 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ajvad-n/)
 [![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ajvadaju2003@gmail.com)
 
+### 🌐 [Live Demo](https://portfolio-ajvad-n.vercel.app)
+
 <p align="center">
   <img src="public/favicon.svg" width="100" alt="Logo" />
 </p>

@@ -1,0 +1,85 @@
+---
+import { ArrowDown, FileText } from 'lucide-react';
+---
+
+<section id="home" class="min-h-screen flex flex-col justify-center relative px-4 pt-20 overflow-hidden">
+  <!-- Top Navigation -->
+  <div class="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-50">
+    <span class="text-xl font-bold tracking-tighter text-primary">AJVAD N.</span>
+    <a 
+      href="/resume.pdf" 
+      target="_blank"
+      class="flex items-center gap-2 px-6 py-2 bg-secondary text-background rounded-full font-medium hover:bg-primary hover:text-background transition-colors duration-300"
+    >
+      <FileText className="w-4 h-4" />
+      <span>Resume</span>
+    </a>
+  </div>
+
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center z-10">
+    <div class="order-2 lg:order-1">
+      <h1 class="text-6xl md:text-[12vw] leading-[0.9] md:leading-[0.8] font-bold mb-8 tracking-tighter text-primary">
+        <span class="glitch inline-block" data-text="AJVAD">AJVAD</span><br/>
+        <span class="text-secondary glitch inline-block" data-text="N.">N.</span>
+      </h1>
+      
+      <div class="flex flex-col gap-8 max-w-xl">
+        <p class="text-2xl md:text-3xl text-muted font-light tracking-wide leading-snug">
+          <span id="typewriter" class="typewriter-cursor"></span>
+        </p>
+        
+        <script>
+          const text = "Cybersecurity Analyst & Ethical Hacker";
+          const element = document.getElementById('typewriter');
+          let i = 0;
+          
+          function typeWriter() {
+            if (i < text.length) {
+              element.innerHTML += text.charAt(i);
+              i++;
+              setTimeout(typeWriter, 50);
+            } else {
+                // Optional: Highlight "Ethical Hacker" after typing
+                element.innerHTML = element.innerHTML.replace("Ethical Hacker", "<span class='text-primary'>Ethical Hacker</span>");
+            }
+          }
+          
+          // Start typing when the page loads
+          window.addEventListener('load', typeWriter);
+        </script>
+        
+        <div class="flex flex-wrap gap-6">
+          <a 
+            href="#projects"
+            class="group relative inline-flex items-center gap-3 text-lg font-medium text-primary hover:text-secondary transition-colors"
+          >
+            <span class="h-px w-8 bg-primary group-hover:w-12 transition-all duration-300"></span>
+            View Work
+          </a>
+          <a 
+            href="#contact"
+            class="group relative inline-flex items-center gap-3 text-lg font-medium text-muted hover:text-primary transition-colors"
+          >
+            <span class="h-px w-8 bg-muted group-hover:w-12 transition-all duration-300"></span>
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+      <div class="relative w-64 h-64 md:w-96 md:h-96 grayscale hover:grayscale-0 transition-all duration-700 ease-out">
+        <img 
+          src="/profile.jpg" 
+          alt="AJVAD N" 
+          class="w-full h-full object-cover rounded-none"
+        />
+        <div class="absolute inset-0 border border-primary/20 translate-x-4 translate-y-4 -z-10"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-4 md:left-12 animate-bounce duration-[2000ms]">
+    <ArrowDown className="w-6 h-6 text-primary/50" />
+  </div>
+</section>

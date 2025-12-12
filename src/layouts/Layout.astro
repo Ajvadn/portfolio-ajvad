@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preload" href="/fonts/lmmono10-regular.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="/fonts/lmmonolt10-bold.woff" as="font" type="font/woff" crossorigin>
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+  </head>
+  <body class="bg-background text-primary antialiased selection:bg-white/20 overflow-x-hidden">
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

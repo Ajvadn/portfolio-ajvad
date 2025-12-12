@@ -1,0 +1,68 @@
+---
+const certifications = [
+  {
+    title: "Google Cloud Security",
+    issuer: "Google",
+    date: "In Progress",
+    image: "/images/cert-placeholder.jpg",
+    description: "Comprehensive understanding of Google Cloud security controls, identity and access management, and data protection."
+  },
+
+  {
+    title: "Certified Ethical Hacker (CEH)",
+    issuer: "EC-Council",
+    date: "2025",
+    image: "/ceh-cert.png",
+    description: "Mastered the latest ethical hacking tools and techniques to identify vulnerabilities and secure systems."
+  },
+
+  {
+    title: "Google Cybersecurity Certificate",
+    issuer: "Google",
+    date: "2025",
+    image: "/google-cybersecurity.jpg",
+    description: "Gained hands-on experience with Python, Linux, SQL, and SIEM tools for cybersecurity analysis."
+  }
+];
+---
+
+<section id="certifications" class="py-16 md:py-32 px-4 reveal">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-sm text-muted uppercase tracking-widest mb-16">Certifications</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {certifications.map((cert) => (
+        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden">
+          <!-- Image Container -->
+          <div class="aspect-[4/3] w-full bg-black/50 overflow-hidden relative">
+             {cert.image.includes('placeholder') ? (
+               <div class="absolute inset-0 flex items-center justify-center text-muted/20 font-mono text-4xl font-bold group-hover:scale-110 transition-transform duration-700">
+                  CERT
+               </div>
+             ) : (
+               <img src={cert.image} alt={cert.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
+             )}
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-primary group-hover:text-secondary transition-colors duration-300 line-clamp-2">
+                  {cert.title}
+                </h3>
+                <p class="text-sm text-muted mt-1">{cert.issuer}</p>
+              </div>
+              <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
+                {cert.date}
+              </span>
+            </div>
+            
+            <p class="text-muted text-sm leading-relaxed line-clamp-3 group-hover:text-primary/80 transition-colors">
+              {cert.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

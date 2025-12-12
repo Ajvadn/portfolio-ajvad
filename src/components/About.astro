@@ -1,0 +1,62 @@
+---
+import Badge from './ui/Badge.astro';
+
+const skills = [
+  "Network Security", "Penetration Testing", "Python", "Linux", 
+  "Bash Scripting", "Wireshark", "Burp Suite", "Metasploit"
+];
+
+const experience = [
+  {
+    role: "Cybersecurity Intern",
+    company: "The RedUsers",
+    period: "July - August",
+    desc: "Focused on Web Application Penetration Testing and Vulnerability Assessment."
+  }
+];
+---
+
+<section id="about" class="py-32 px-4 relative reveal">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(180px,auto)]">
+      
+      <!-- Bio Block -->
+      <div class="md:col-span-8 p-8 border border-primary/10 relative group hover:border-secondary/30 transition-colors duration-500">
+        <h2 class="text-4xl font-bold mb-6 text-primary">About Me</h2>
+        <p class="text-xl text-muted leading-relaxed max-w-2xl">
+          I'm a cybersecurity analyst passionate about securing digital infrastructures. 
+          My work bridges the gap between <span class="text-primary font-medium">offensive security</span> and 
+          <span class="text-primary font-medium">defensive strategies</span>.
+        </p>
+      </div>
+
+      <!-- Experience Block -->
+      <div class="md:col-span-4 p-8 border border-primary/10 flex flex-col justify-between group hover:border-secondary/30 transition-colors duration-500">
+        <span class="text-sm text-muted uppercase tracking-widest">Experience</span>
+        <div class="mt-4">
+            <h3 class="text-xl font-bold text-primary">{experience[0].role}</h3>
+            <p class="text-secondary">{experience[0].company}</p>
+            <p class="text-sm text-muted mt-1">{experience[0].period}</p>
+            <p class="text-sm text-muted mt-2">{experience[0].desc}</p>
+        </div>
+      </div>
+
+      <!-- Skills Block -->
+      <div class="md:col-span-5 p-8 border border-primary/10 group hover:border-secondary/30 transition-colors duration-500">
+        <span class="text-sm text-muted uppercase tracking-widest mb-8 block">Core Skills</span>
+        <div class="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <Badge text={skill} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Focus Block -->
+      <div class="md:col-span-7 p-8 border border-primary/10 flex flex-col justify-end group hover:border-secondary/30 transition-colors duration-500">
+        <h3 class="text-2xl font-bold text-primary mb-2">Security Research</h3>
+        <p class="text-muted">Constantly exploring new vulnerabilities and patch methodologies.</p>
+      </div>
+
+    </div>
+  </div>
+</section>

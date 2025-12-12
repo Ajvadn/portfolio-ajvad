@@ -1,0 +1,70 @@
+---
+import Badge from './ui/Badge.astro';
+import { ExternalLink, Github } from 'lucide-react';
+
+const projects = [
+  {
+    title: "HID Attacks (ATtiny85)",
+    description: "Firmware for ATtiny85 to emulate USB HID devices for controlled security testing, keystroke injection, and endpoint resilience evaluation.",
+    technologies: ["Ethical Hacking", "IoT", "Embedded Systems"],
+    githubUrl: "https://github.com/Ajvadn"
+  },
+  {
+    title: "Deauther & Evil Twin",
+    description: "Wi-Fi deauthentication and Evil Twin simulation tool using ESP32/ESP8266 for wireless security research and WPA2/WPA3 hardening.",
+    technologies: ["WiFi Pentesting", "IoT", "ESP32/ESP8266"],
+    githubUrl: "https://github.com/Ajvadn"
+  },
+  {
+    title: "VOICEGPT",
+    description: "Research on ChatGPT's role in improving communicative competence and the future of AI in education and language learning.",
+    technologies: ["AI/ML", "Python", "Problem Solving"],
+    githubUrl: "https://github.com/Ajvadn"
+  },
+  {
+    title: "Drooper",
+    description: "Advanced social engineering tool designed for penetration testing to generate and deliver payloads via various attack vectors.",
+    technologies: ["Python", "Social Engineering", "Red Teaming"],
+    githubUrl: "https://github.com/Ajvadn/Drooper"
+  }
+];
+---
+
+<section id="projects" class="py-16 md:py-32 px-4 reveal">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-end justify-between mb-16">
+      <h2 class="text-sm text-muted uppercase tracking-widest">Selected Works</h2>
+      <span class="text-sm text-muted">2023 — Present</span>
+    </div>
+
+    <div class="flex flex-col">
+      {projects.map((project) => (
+        <a 
+          href={project.githubUrl}
+          target="_blank"
+          class="group border-t border-primary/10 py-12 flex flex-col md:flex-row md:items-baseline justify-between hover:bg-primary/5 transition-all duration-500 px-4"
+        >
+          <div class="md:w-1/2">
+            <h3 class="text-3xl md:text-5xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
+              {project.title}
+            </h3>
+          </div>
+          
+          <div class="md:w-1/2 flex flex-col md:flex-row justify-between items-end md:items-baseline mt-4 md:mt-0">
+            <p class="text-muted max-w-xs text-right md:text-left mb-4 md:mb-0 group-hover:text-primary transition-colors">
+              {project.description}
+            </p>
+            <div class="flex gap-2">
+              {project.technologies.map(tag => (
+                <span class="text-xs font-mono text-muted border border-primary/10 px-2 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+      <div class="border-t border-primary/10"></div>
+    </div>
+  </div>
+</section>

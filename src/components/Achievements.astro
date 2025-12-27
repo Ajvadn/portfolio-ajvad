@@ -1,0 +1,54 @@
+---
+const achievements = [
+  {
+    title: "NCIIPC Acknowledgment",
+    organization: "National Critical Information Infrastructure Protection Centre",
+    date: "2025",
+    icon: "shield",
+    description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
+  },
+  {
+    title: "Bug Bounty Finding",
+    organization: "Bugcrowd",
+    date: "2025",
+    icon: "bug",
+    description: "Discovered a Self XSS vulnerability (Severity P5) in a program, demonstrating attention to detail in web application security."
+  }
+];
+
+import { Shield, Bug } from 'lucide-react';
+---
+
+<section id="achievements" class="py-16 md:py-32 px-4 reveal">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-sm text-muted uppercase tracking-widest mb-16">Achievements</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {achievements.map((item) => (
+        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden relative p-8">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                {item.icon === 'shield' ? <Shield size={100} /> : <Bug size={100} />}
+            </div>
+
+            <div class="relative z-10">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
+                        {item.title}
+                        </h3>
+                        <p class="text-sm text-muted mt-2">{item.organization}</p>
+                    </div>
+                    <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
+                        {item.date}
+                    </span>
+                </div>
+                
+                <p class="text-muted leading-relaxed group-hover:text-primary/80 transition-colors">
+                {item.description}
+                </p>
+            </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

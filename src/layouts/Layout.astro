@@ -27,7 +27,12 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <meta property="og:description" content={description} />
     <meta name="theme-color" content="#0a0a0a" />
   </head>
-  <body class="bg-background text-primary antialiased selection:bg-white/20 overflow-x-hidden">
+  <body class="bg-background text-primary antialiased selection:bg-white/20 overflow-x-hidden relative">
+    <!-- Ambient Background Glow -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+      <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
+    </div>
     <main>
       <slot />
     </main>

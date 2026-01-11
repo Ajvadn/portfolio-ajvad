@@ -1,6 +1,15 @@
 ---
 const achievements = [
   {
+    title: "WAF Bypass via Origin IP Disclosure",
+    organization: "M-Pesa Africa Limited",
+    date: "2026",
+    icon: "bug",
+    severity: "Medium",
+    status: "Informative",
+    description: "Identified Origin IP exposure allowing WAF bypass to access an internal development environment, resulting in unauthorized administrative registration."
+  },
+  {
     title: "NCIIPC Acknowledgment",
     organization: "National Critical Information Infrastructure Protection Centre",
     date: "2025",
@@ -88,6 +97,7 @@ import { Shield, Bug } from 'lucide-react';
                         <div class="flex gap-2">
                              {item.severity && (
                                 <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                                    item.severity === 'Medium' ? 'border-orange-500/30 text-orange-500' :
                                     item.severity === 'P4' ? 'border-yellow-500/30 text-yellow-500' : 
                                     item.severity === 'P5' || item.severity === 'Info' ? 'border-blue-500/30 text-blue-500' : 
                                     'border-primary/30 text-primary'
@@ -95,9 +105,13 @@ import { Shield, Bug } from 'lucide-react';
                                     {item.severity}
                                 </span>
                             )}
-                            {item.status === 'Duplicate' && (
-                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-500/30 text-orange-500">
-                                    Duplicate
+                            {item.status && (
+                                <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                                    item.status === 'Duplicate' ? 'border-orange-500/30 text-orange-500' : 
+                                    item.status === 'Informative' ? 'border-blue-400/30 text-blue-400' :
+                                    'border-primary/30 text-primary'
+                                }`}>
+                                    {item.status}
                                 </span>
                             )}
                         </div>

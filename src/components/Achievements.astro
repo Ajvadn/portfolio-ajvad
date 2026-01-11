@@ -5,14 +5,57 @@ const achievements = [
     organization: "National Critical Information Infrastructure Protection Centre",
     date: "2025",
     icon: "shield",
+    severity: "Info",
     description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
   },
   {
-    title: "Bug Bounty Finding",
-    organization: "Bugcrowd",
+    title: "Security Misconfiguration",
+    organization: "NASA",
+    date: "2026",
+    icon: "bug",
+    severity: "P4",
+    status: "Duplicate",
+    description: "Identified debug mode enabled exposing internal routes and application structure."
+  },
+  {
+    title: "WAF/Access Control Bypass",
+    organization: "NASA",
+    date: "2026",
+    icon: "bug",
+    severity: "P5",
+    description: "Identified a misconfiguration allowing bypass of security controls to access restricted internal areas."
+  },
+  {
+    title: "Vulnerable Dependency",
+    organization: "U.S. Dept of Commerce",
+    date: "2026",
+    icon: "bug",
+    severity: "P5",
+    description: "Reported usage of an outdated framework containing known vulnerabilities affecting the software supply chain."
+  },
+  {
+    title: "Information Disclosure",
+    organization: "NASA",
+    date: "2026",
+    icon: "bug",
+    severity: "P5",
+    description: "Found sensitive configuration data exposed publicly without authentication."
+  },
+  {
+    title: "Sensitive Info Disclosure",
+    organization: "U.S. Dept of Commerce",
+    date: "2026",
+    icon: "bug",
+    severity: "P5",
+    description: "Identified publicly accessible project files exposing internal dependency versions."
+  },
+  {
+    title: "Self-XSS Vulnerability",
+    organization: "Internet Brands",
     date: "2025",
     icon: "bug",
-    description: "Discovered a Self XSS vulnerability (Severity P5) in a program, demonstrating attention to detail in web application security."
+    severity: "P5",
+    description: "Discovered client-side vulnerabilities demonstrating potential risks in the application interface."
   }
 ];
 
@@ -38,9 +81,27 @@ import { Shield, Bug } from 'lucide-react';
                         </h3>
                         <p class="text-sm text-muted mt-2">{item.organization}</p>
                     </div>
-                    <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
-                        {item.date}
-                    </span>
+                    <div class="flex flex-col items-end gap-2">
+                        <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
+                            {item.date}
+                        </span>
+                        <div class="flex gap-2">
+                             {item.severity && (
+                                <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                                    item.severity === 'P4' ? 'border-yellow-500/30 text-yellow-500' : 
+                                    item.severity === 'P5' || item.severity === 'Info' ? 'border-blue-500/30 text-blue-500' : 
+                                    'border-primary/30 text-primary'
+                                }`}>
+                                    {item.severity}
+                                </span>
+                            )}
+                            {item.status === 'Duplicate' && (
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-orange-500/30 text-orange-500">
+                                    Duplicate
+                                </span>
+                            )}
+                        </div>
+                    </div>
                 </div>
                 
                 <p class="text-muted leading-relaxed group-hover:text-primary/80 transition-colors">

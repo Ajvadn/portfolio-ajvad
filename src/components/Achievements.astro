@@ -95,7 +95,7 @@ import { Shield, Bug } from 'lucide-react';
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {achievements.map((item) => (
-        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden relative p-8">
+        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden relative p-8 glass-card">
             <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 {item.icon === 'shield' ? <Shield size={100} /> : <Bug size={100} />}
             </div>

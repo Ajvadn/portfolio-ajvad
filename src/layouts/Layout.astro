@@ -28,6 +28,7 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <meta name="theme-color" content="#0a0a0a" />
   </head>
   <body class="bg-background text-primary antialiased selection:bg-white/20 overflow-x-hidden relative">
+    <div id="global-spotlight" class="spotlight"></div>
     <!-- Ambient Background Glow -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
       <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
@@ -36,5 +37,14 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <main>
       <slot />
     </main>
+    <script>
+      const spotlight = document.getElementById('global-spotlight');
+      window.addEventListener('mousemove', (e) => {
+        if (spotlight) {
+          spotlight.style.setProperty('--x', `${e.clientX}px`);
+          spotlight.style.setProperty('--y', `${e.clientY}px`);
+        }
+      });
+    </script>
   </body>
 </html>

@@ -80,13 +80,25 @@ import { ArrowDown, FileText } from 'lucide-react';
     </div>
 
     <div class="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-      <div class="relative w-64 h-64 md:w-96 md:h-96 grayscale hover:grayscale-0 transition-all duration-700 ease-out overflow-hidden group">
-        <img 
-          src="/profile.jpg" 
-          alt="AJVAD N" 
-          class="w-full h-full object-cover rounded-none transition-transform duration-700 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 border border-primary/20 translate-x-4 translate-y-4 -z-10 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+      <div class="relative w-64 h-64 md:w-96 md:h-96 group">
+        <!-- Corner Accents -->
+        <div class="corner-marker corner-tl group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
+        <div class="corner-marker corner-tr group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
+        <div class="corner-marker corner-bl group-hover:-translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
+        <div class="corner-marker corner-br group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
+        
+        <div class="relative w-full h-full overflow-hidden border border-white/5 bg-primary/5">
+            <img 
+            src="/profile.jpg" 
+            alt="AJVAD N" 
+            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 image-mask opacity-90 group-hover:opacity-100"
+            />
+            <!-- Subtle Overlay -->
+            <div class="absolute inset-0 bg-secondary/5 group-hover:bg-transparent transition-colors duration-700"></div>
+        </div>
+        
+        <!-- Background decorative element -->
+        <div class="absolute -inset-4 bg-secondary/5 blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
       </div>
     </div>
   </div>

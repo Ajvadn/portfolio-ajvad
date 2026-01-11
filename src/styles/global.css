@@ -198,6 +198,46 @@
             linear-gradient(to bottom, rgba(45, 212, 191, 0.05) 1px, transparent 1px);
     }
 
+    /* Corner Markers */
+    .corner-marker {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-color: var(--color-secondary);
+        z-index: 20;
+    }
+
+    .corner-tl {
+        top: -2px;
+        left: -2px;
+        border-top: 2px solid;
+        border-left: 2px solid;
+    }
+
+    .corner-tr {
+        top: -2px;
+        right: -2px;
+        border-top: 2px solid;
+        border-right: 2px solid;
+    }
+
+    .corner-bl {
+        bottom: -2px;
+        left: -2px;
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+    }
+
+    .corner-br {
+        bottom: -2px;
+        right: -2px;
+        border-bottom: 2px solid;
+        border-right: 2px solid;
+    }
+
+    .image-mask {
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
 
     /* Interactive Spotlight */
     .spotlight {

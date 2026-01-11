@@ -1,5 +1,13 @@
----
 const achievements = [
+  {
+    title: "WAF Bypass & Origin IP Disclosure",
+    organization: "VTM GO",
+    date: "2026",
+    icon: "bug",
+    severity: "Medium",
+    status: "Informative",
+    description: "Discovered Origin IP exposure via AWS Global Accelerator allowing direct backend access and WAF bypass on ims.vtmgo.be."
+  },
   {
     title: "WAF Bypass via Origin IP Disclosure",
     organization: "M-Pesa Africa Limited",
@@ -8,14 +16,6 @@ const achievements = [
     severity: "Medium",
     status: "Informative",
     description: "Identified Origin IP exposure allowing WAF bypass to access an internal development environment, resulting in unauthorized administrative registration."
-  },
-  {
-    title: "NCIIPC Acknowledgment",
-    organization: "National Critical Information Infrastructure Protection Centre",
-    date: "2025",
-    icon: "shield",
-    severity: "Info",
-    description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
   },
   {
     title: "Security Misconfiguration",
@@ -35,14 +35,6 @@ const achievements = [
     description: "Identified a misconfiguration allowing bypass of security controls to access restricted internal areas."
   },
   {
-    title: "Vulnerable Dependency",
-    organization: "U.S. Dept of Commerce",
-    date: "2026",
-    icon: "bug",
-    severity: "P5",
-    description: "Reported usage of an outdated framework containing known vulnerabilities affecting the software supply chain."
-  },
-  {
     title: "Information Disclosure",
     organization: "NASA",
     date: "2026",
@@ -51,12 +43,37 @@ const achievements = [
     description: "Found sensitive configuration data exposed publicly without authentication."
   },
   {
+    title: "Vulnerable Dependency",
+    organization: "U.S. Dept of Commerce",
+    date: "2026",
+    icon: "bug",
+    severity: "P5",
+    description: "Reported usage of an outdated framework containing known vulnerabilities affecting the software supply chain."
+  },
+  {
     title: "Sensitive Info Disclosure",
     organization: "U.S. Dept of Commerce",
     date: "2026",
     icon: "bug",
     severity: "P5",
     description: "Identified publicly accessible project files exposing internal dependency versions."
+  },
+  {
+    title: "CSRF Vulnerability",
+    organization: "Intel®",
+    date: "2025",
+    icon: "bug",
+    severity: "Medium",
+    status: "Archived",
+    description: "Identified a Cross-Site Request Forgery vulnerability in the Akamai Analytics pixel implementation on Intel.com."
+  },
+  {
+    title: "NCIIPC Acknowledgment",
+    organization: "National Critical Information Infrastructure Protection Centre",
+    date: "2025",
+    icon: "shield",
+    severity: "Info",
+    description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
   },
   {
     title: "Self-XSS Vulnerability",
@@ -109,6 +126,7 @@ import { Shield, Bug } from 'lucide-react';
                                 <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                                     item.status === 'Duplicate' ? 'border-orange-500/30 text-orange-500' : 
                                     item.status === 'Informative' ? 'border-blue-400/30 text-blue-400' :
+                                    item.status === 'Archived' ? 'border-gray-500/30 text-gray-500' :
                                     'border-primary/30 text-primary'
                                 }`}>
                                     {item.status}

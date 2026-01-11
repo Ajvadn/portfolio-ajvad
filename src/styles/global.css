@@ -208,31 +208,35 @@
     }
 
     .corner-tl {
-        top: -2px;
-        left: -2px;
+        top: -4px;
+        left: -4px;
         border-top: 2px solid;
         border-left: 2px solid;
+        border-top-left-radius: 12px;
     }
 
     .corner-tr {
-        top: -2px;
-        right: -2px;
+        top: -4px;
+        right: -4px;
         border-top: 2px solid;
         border-right: 2px solid;
+        border-top-right-radius: 12px;
     }
 
     .corner-bl {
-        bottom: -2px;
-        left: -2px;
+        bottom: -4px;
+        left: -4px;
         border-bottom: 2px solid;
         border-left: 2px solid;
+        border-bottom-left-radius: 12px;
     }
 
     .corner-br {
-        bottom: -2px;
-        right: -2px;
+        bottom: -4px;
+        right: -4px;
         border-bottom: 2px solid;
         border-right: 2px solid;
+        border-bottom-right-radius: 12px;
     }
 
     .image-mask {

@@ -45,6 +45,22 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
           spotlight.style.setProperty('--y', `${e.clientY}px`);
         }
       });
+
+      // Magnetic Effect
+      const magnets = document.querySelectorAll('.magnetic');
+      magnets.forEach((magnet) => {
+        magnet.addEventListener('mousemove', (e) => {
+          const m = magnet as HTMLElement;
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        magnet.addEventListener('mouseleave', () => {
+          const m = magnet as HTMLElement;
+          m.style.transform = 'translate(0px, 0px)';
+        });
+      });
     </script>
   </body>
 </html>

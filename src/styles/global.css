@@ -246,6 +246,38 @@
         background: rgba(255, 255, 255, 0.01);
     }
 
+    /* Shimmer Effect for Badges */
+    .shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .shimmer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(255, 255, 255, 0.05),
+                transparent);
+        transform: translateX(-100%);
+        animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    /* Magnetic Button Transition */
+    .magnetic {
+        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
     /* Scroll Reveal */
     .reveal {
         opacity: 0;

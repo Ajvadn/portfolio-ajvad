@@ -1,5 +1,6 @@
 ---
 import { ArrowDown, FileText } from 'lucide-react';
+import ThemeToggle from '../ui/ThemeToggle.astro';
 ---
 
 <section id="home" class="min-h-screen flex flex-col justify-center relative px-4 pt-20 overflow-hidden grid-bg">
@@ -7,18 +8,28 @@ import { ArrowDown, FileText } from 'lucide-react';
   <!-- Top Navigation -->
   <div class="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-50">
     <span class="text-xl font-bold tracking-tighter text-primary">AJVAD N.</span>
-    <a 
-      href="/resume.pdf" 
-      target="_blank"
-      class="flex items-center gap-2 px-6 py-2 bg-secondary text-background rounded-full font-medium hover:bg-primary hover:text-background transition-colors duration-300 magnetic"
-    >
-      <FileText className="w-4 h-4" />
-      <span>Resume</span>
-    </a>
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+      <a 
+        href="/docs/resume.pdf" 
+        target="_blank"
+        class="flex items-center gap-2 px-6 py-2 bg-secondary text-background rounded-full font-medium hover:bg-primary hover:text-background transition-colors duration-300 magnetic"
+      >
+        <FileText className="w-4 h-4" />
+        <span>Resume</span>
+      </a>
+    </div>
   </div>
 
   <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center z-10">
     <div class="order-2 lg:order-1">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 mb-6 animate-fade-in">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+        </span>
+        <span class="text-xs font-mono text-secondary uppercase tracking-widest font-bold">NASA Recognized Hacker</span>
+      </div>
       <h1 class="text-6xl md:text-[12vw] leading-[0.9] md:leading-[0.8] font-bold mb-8 tracking-tighter text-primary">
         <span class="glitch inline-block" data-text="AJVAD">AJVAD</span><br/>
         <span class="text-secondary glitch inline-block" data-text="N.">N.</span>
@@ -89,7 +100,7 @@ import { ArrowDown, FileText } from 'lucide-react';
         
         <div class="relative w-full h-full overflow-hidden border border-white/5 rounded-2xl">
             <img 
-            src="/profile.jpg" 
+            src="/images/profile.jpg" 
             alt="AJVAD N" 
             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 image-mask opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0 rounded-2xl"
             />

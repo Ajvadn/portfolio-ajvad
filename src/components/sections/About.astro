@@ -1,5 +1,6 @@
 ---
-import Badge from './ui/Badge.astro';
+import Badge from '../ui/Badge.astro';
+import Terminal from '../ui/Terminal.astro';
 
 const skills = [
   "Network Security", "Penetration Testing", "Python", "Linux", 
@@ -51,10 +52,9 @@ const experience = [
         </div>
       </div>
 
-      <!-- Focus Block -->
-      <div class="md:col-span-7 p-8 border border-primary/10 flex flex-col justify-end group hover:border-secondary/30 transition-colors duration-500">
-        <h3 class="text-2xl font-bold text-primary mb-2">Security Research</h3>
-        <p class="text-muted">Constantly exploring new vulnerabilities and patch methodologies.</p>
+      <!-- Terminal Block -->
+      <div class="md:col-span-7 group transition-all duration-500">
+        <Terminal />
       </div>
 
     </div>

@@ -21,6 +21,21 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <link rel="preload" href="/fonts/lmmono10-regular.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="/fonts/lmmonolt10-bold.woff" as="font" type="font/woff" crossorigin>
     
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'dark';
+      })();
+    
+      if (theme === 'light') {
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.remove('light');
+      }
+    </script>
+
     <!-- Open Graph / SEO -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />

@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
+:root {
+    --background: #000000;
+    --primary: #f1f5f9;
+    --secondary: #2dd4bf;
+    --muted: #94a3b8;
+    --grid-color: 45, 212, 191;
+    --grid-opacity: 0.05;
+}
+
+:root.light {
+    --background: #f8fafc;
+    --primary: #0f172a;
+    --secondary: #0d9488;
+    --muted: #475569;
+    --grid-color: 13, 148, 136;
+    --grid-opacity: 0.1;
+}
+
 @theme {
-    --color-background: #000000;
-    /* AMOLED Black */
-    --color-primary: #f1f5f9;
-    /* Slate 100 */
-    --color-secondary: #2dd4bf;
-    /* Teal 400 */
-    --color-muted: #94a3b8;
-    /* Slate 400 */
+    --color-background: var(--background);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-muted: var(--muted);
     --font-sans: 'Latin Modern Mono', monospace;
     --font-heading: 'Latin Modern Mono', monospace;
 }
@@ -194,8 +208,8 @@
     .grid-bg {
         background-size: 50px 50px;
         background-image:
-            linear-gradient(to right, rgba(45, 212, 191, 0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(45, 212, 191, 0.05) 1px, transparent 1px);
+            linear-gradient(to right, rgba(var(--grid-color), var(--grid-opacity)) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(var(--grid-color), var(--grid-opacity)) 1px, transparent 1px);
     }
 
     /* Corner Markers */
@@ -250,7 +264,7 @@
         pointer-events: none;
         z-index: 10;
         background: radial-gradient(circle 600px at var(--x, 50%) var(--y, 50%),
-                rgba(45, 212, 191, 0.03),
+                rgba(var(--grid-color), 0.03),
                 transparent 80%);
     }
 
@@ -302,5 +316,21 @@
     .reveal.active {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

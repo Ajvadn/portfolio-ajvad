@@ -1,6 +1,23 @@
 ---
 const achievements = [
   {
+    title: "Security Misconfiguration",
+    organization: "NASA",
+    date: "2026",
+    icon: "bug",
+    severity: "P4",
+    status: "Duplicate",
+    description: "Identified debug mode enabled exposing internal routes and application structure."
+  },
+  {
+    title: "NCIIPC Acknowledgment",
+    organization: "National Critical Information Infrastructure Protection Centre",
+    date: "2025",
+    icon: "shield",
+    severity: "Info",
+    description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
+  },
+  {
     title: "WAF Bypass & Origin IP Disclosure",
     organization: "DPG Media",
     date: "2026",
@@ -19,13 +36,13 @@ const achievements = [
     description: "Identified Origin IP exposure allowing WAF bypass to access an internal development environment, resulting in unauthorized administrative registration."
   },
   {
-    title: "Security Misconfiguration",
-    organization: "NASA",
-    date: "2026",
+    title: "Vulnerability Disclosure",
+    organization: "Max Healthcare",
+    date: "2025",
     icon: "bug",
     severity: "P4",
-    status: "Duplicate",
-    description: "Identified debug mode enabled exposing internal routes and application structure."
+    description: "Successfully identified and reported security vulnerabilities as part of the Max Healthcare Responsible Disclosure Program, contributing to the organization's cybersecurity posture.",
+    certificateUrl: "/docs/max-hc-1.pdf"
   },
   {
     title: "WAF/Access Control Bypass",
@@ -44,6 +61,24 @@ const achievements = [
     description: "Found sensitive configuration data exposed publicly without authentication."
   },
   {
+    title: "Vulnerability Disclosure",
+    organization: "Max Healthcare",
+    date: "2025",
+    icon: "bug",
+    severity: "P4",
+    description: "Recognized for dedication and achievement in enhancing cybersecurity through the Max Healthcare Responsible Disclosure Program by reporting technical vulnerabilities.",
+    certificateUrl: "/docs/max-hc-2.pdf"
+  },
+  {
+    title: "CSRF Vulnerability",
+    organization: "Intel®",
+    date: "2025",
+    icon: "bug",
+    severity: "Medium",
+    status: "Informative",
+    description: "Identified a Cross-Site Request Forgery vulnerability in the Akamai Analytics pixel implementation on Intel.com."
+  },
+  {
     title: "Vulnerable Dependency",
     organization: "U.S. Dept of Commerce",
     date: "2026",
@@ -60,23 +95,6 @@ const achievements = [
     description: "Identified publicly accessible project files exposing internal dependency versions."
   },
   {
-    title: "CSRF Vulnerability",
-    organization: "Intel®",
-    date: "2025",
-    icon: "bug",
-    severity: "Medium",
-    status: "Informative",
-    description: "Identified a Cross-Site Request Forgery vulnerability in the Akamai Analytics pixel implementation on Intel.com."
-  },
-  {
-    title: "NCIIPC Acknowledgment",
-    organization: "National Critical Information Infrastructure Protection Centre",
-    date: "2025",
-    icon: "shield",
-    severity: "Info",
-    description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
-  },
-  {
     title: "Self-XSS Vulnerability",
     organization: "Internet Brands",
     date: "2025",
@@ -86,7 +104,7 @@ const achievements = [
   }
 ];
 
-import { Shield, Bug } from 'lucide-react';
+import { Shield, Bug, ExternalLink } from 'lucide-react';
 ---
 
 <section id="achievements" class="py-16 md:py-32 px-4 reveal">
@@ -140,6 +158,18 @@ import { Shield, Bug } from 'lucide-react';
                 <p class="text-muted leading-relaxed group-hover:text-primary/80 transition-colors">
                 {item.description}
                 </p>
+
+                {item.certificateUrl && (
+                    <a 
+                        href={item.certificateUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-xs font-medium text-secondary hover:text-secondary/80 transition-colors mt-6 bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
+                    >
+                        <ExternalLink size={14} />
+                        View Certificate
+                    </a>
+                )}
             </div>
         </div>
       ))}

@@ -1,33 +1,8 @@
 ---
-import Badge from './ui/Badge.astro';
+import Badge from '../ui/Badge.astro';
 import { ExternalLink, Github, Linkedin } from 'lucide-react';
 
 const projects = [
-  {
-    title: "HID Attacks (ATtiny85)",
-    description: "Firmware for ATtiny85 to emulate USB HID devices for controlled security testing, keystroke injection, and endpoint resilience evaluation.",
-    technologies: ["Ethical Hacking", "IoT", "Embedded Systems"],
-    githubUrl: "https://github.com/Ajvadn"
-  },
-  {
-    title: "Deauther & Evil Twin",
-    description: "Wi-Fi deauthentication and Evil Twin simulation tool using ESP32/ESP8266 for wireless security research and WPA2/WPA3 hardening.",
-    technologies: ["WiFi Pentesting", "IoT", "ESP32/ESP8266"],
-    githubUrl: "https://github.com/Ajvadn",
-    linkedinUrl: "https://www.linkedin.com/posts/ajvad-n_cybersecurity-wifisecurity-ethicalhacking-activity-7264682031689719809-0jvu?utm_source=share&utm_medium=member_android&rcm=ACoAADjre1kBKBXIhn6NE1nYSDmy-UV_M9tMGT4"
-  },
-  {
-    title: "VOICEGPT",
-    description: "Research on ChatGPT's role in improving communicative competence and the future of AI in education and language learning.",
-    technologies: ["AI/ML", "Python", "Problem Solving"],
-    githubUrl: "https://github.com/Ajvadn"
-  },
-  {
-    title: "Drooper",
-    description: "Advanced social engineering tool designed for penetration testing to generate and deliver payloads via various attack vectors.",
-    technologies: ["Python", "Social Engineering", "Red Teaming"],
-    githubUrl: "https://github.com/Ajvadn/Drooper"
-  },
   {
     title: "Subdomain Hunter",
     description: "Automated subdomain enumeration tool designed to discover hidden assets and expand attack surfaces during reconnaissance.",
@@ -39,6 +14,31 @@ const projects = [
     description: "Efficient URL gathering tool designed to collect and organize URLs from various sources for comprehensive reconnaissance.",
     technologies: ["Go", "Recon", "Fuzzing"],
     githubUrl: "https://github.com/Ajvadn/parm-fuzzer.git"
+  },
+  {
+    title: "Drooper",
+    description: "Advanced social engineering tool designed for penetration testing to generate and deliver payloads via various attack vectors.",
+    technologies: ["Python", "Social Engineering", "Red Teaming"],
+    githubUrl: "https://github.com/Ajvadn/Drooper"
+  },
+  {
+    title: "Deauther & Evil Twin",
+    description: "Wi-Fi deauthentication and Evil Twin simulation tool using ESP32/ESP8266 for wireless security research and WPA2/WPA3 hardening.",
+    technologies: ["WiFi Pentesting", "IoT", "ESP32/ESP8266"],
+    githubUrl: "https://github.com/Ajvadn",
+    linkedinUrl: "https://www.linkedin.com/posts/ajvad-n_cybersecurity-wifisecurity-ethicalhacking-activity-7264682031689719809-0jvu?utm_source=share&utm_medium=member_android&rcm=ACoAADjre1kBKBXIhn6NE1nYSDmy-UV_M9tMGT4"
+  },
+  {
+    title: "HID Attacks (ATtiny85)",
+    description: "Firmware for ATtiny85 to emulate USB HID devices for controlled security testing, keystroke injection, and endpoint resilience evaluation.",
+    technologies: ["Ethical Hacking", "IoT", "Embedded Systems"],
+    githubUrl: "https://github.com/Ajvadn"
+  },
+  {
+    title: "VOICEGPT",
+    description: "Research on ChatGPT's role in improving communicative competence and the future of AI in education and language learning.",
+    technologies: ["AI/ML", "Python", "Problem Solving"],
+    githubUrl: "https://github.com/Ajvadn"
   }
 ];
 ---

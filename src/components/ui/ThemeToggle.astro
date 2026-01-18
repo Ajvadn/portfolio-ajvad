@@ -1,0 +1,47 @@
+---
+import { Sun, Moon } from 'lucide-react';
+---
+
+<button
+  id="theme-toggle"
+  class="p-2.5 rounded-full bg-primary/5 border border-primary/10 text-muted hover:text-secondary hover:bg-secondary/10 hover:border-secondary/20 transition-all duration-300 group"
+  aria-label="Toggle Theme"
+>
+  <Sun id="sun-icon" class="w-5 h-5 hidden" />
+  <Moon id="moon-icon" class="w-5 h-5 hidden" />
+</button>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = document.getElementById('sun-icon');
+  const moonIcon = document.getElementById('moon-icon');
+
+  function getStoredTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return 'dark'; // Default theme
+  }
+
+  function setTheme(theme: string) {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+    } else {
+      document.documentElement.classList.remove('light');
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  // Initial setup
+  const currentTheme = getStoredTheme();
+  setTheme(currentTheme);
+
+  themeToggle?.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.contains('light');
+    setTheme(isLight ? 'dark' : 'light');
+  });
+</script>

@@ -7,6 +7,33 @@ const achievements = [
     icon: "shield",
     severity: "Info",
     description: "Reported and acknowledged for 2 vulnerabilities in Indian Government websites, contributing to national cybersecurity."
+  },
+  {
+    title: "Hall of Fame",
+    organization: "Max Healthcare",
+    date: "2026",
+    icon: "shield",
+    severity: "Info",
+    description: "Recognized in the Max Healthcare Hall of Fame for identifying and reporting security vulnerabilities.",
+    imageUrl: "/images/max-hc-hof.jpg"
+  },
+  {
+    title: "Hall of Fame",
+    organization: "Nykaa",
+    date: "2026",
+    icon: "shield",
+    severity: "Info",
+    description: "Acknowledged in the Nykaa Hall of Fame for responsible disclosure of security flaws.",
+    imageUrl: "/images/nykaa-hof.jpg"
+  },
+  {
+    title: "Bug Bounty Reward (₹5,000)",
+    organization: "Nykaa",
+    date: "2026",
+    icon: "bug",
+    severity: "Medium",
+    description: "Awarded a bug bounty of ₹5,000 for discovering and responsibly disclosing a security vulnerability on Nykaa.",
+    imageUrl: "/images/nykaa-bounty.png"
   }
 ];
 
@@ -17,22 +44,22 @@ import { Shield, Bug, ExternalLink } from 'lucide-react';
   <div class="max-w-7xl mx-auto">
     <h2 class="text-sm text-muted uppercase tracking-widest mb-16">Achievements</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="columns-1 md:columns-2 gap-8 space-y-8 md:space-y-0">
       {achievements.map((item) => (
-        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden relative p-8 glass-card">
+        <div class="break-inside-avoid-column mb-8 group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden relative p-8 glass-card flex flex-col">
             <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 {item.icon === 'shield' ? <Shield size={100} /> : <Bug size={100} />}
             </div>
 
-            <div class="relative z-10">
+            <div class="relative z-10 flex flex-col h-full">
                 <div class="flex justify-between items-start mb-6">
-                    <div>
+                    <div class="flex-1 mr-4">
                         <h3 class="text-2xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
                         {item.title}
                         </h3>
                         <p class="text-sm text-muted mt-2">{item.organization}</p>
                     </div>
-                    <div class="flex flex-col items-end gap-2">
+                    <div class="flex flex-col items-end gap-2 shrink-0">
                         <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
                             {item.date}
                         </span>
@@ -47,30 +74,34 @@ import { Shield, Bug, ExternalLink } from 'lucide-react';
                                     {item.severity}
                                 </span>
                             )}
-                            {item.status && (
-                                <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                                    item.status === 'Duplicate' ? 'border-orange-500/30 text-orange-500' : 
-                                    item.status === 'Informative' ? 'border-blue-400/30 text-blue-400' :
-                                    item.status === 'Archived' ? 'border-gray-500/30 text-gray-500' :
-                                    'border-primary/30 text-primary'
-                                }`}>
-                                    {item.status}
-                                </span>
-                            )}
                         </div>
                     </div>
                 </div>
                 
-                <p class="text-muted leading-relaxed group-hover:text-primary/80 transition-colors">
-                {item.description}
+                <p class="text-muted leading-relaxed group-hover:text-primary/80 transition-colors mb-6">
+                    {item.description}
                 </p>
+
+                {item.imageUrl && (
+                    <div class="mt-6">
+                        <div class="w-full rounded-lg overflow-hidden border border-primary/20 flex items-center justify-center group-hover:border-secondary/30 transition-colors duration-500">
+                            <img 
+                                src={item.imageUrl} 
+                                alt={`${item.title} at ${item.organization}`} 
+                                class={`w-full h-auto transition-transform duration-700 group-hover:scale-[1.03] ${
+                                    item.imageUrl.includes('bounty') ? 'object-contain' : 'object-cover'
+                                }`} 
+                            />
+                        </div>
+                    </div>
+                )}
 
                 {item.certificateUrl && (
                     <a 
                         href={item.certificateUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 text-xs font-medium text-secondary hover:text-secondary/80 transition-colors mt-6 bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
+                        class="inline-flex items-center gap-2 text-xs font-medium text-secondary hover:text-secondary/80 transition-colors mt-6 bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 hover:border-secondary/40 transition-all duration-300 w-fit"
                     >
                         <ExternalLink size={14} />
                         View Certificate

@@ -9,14 +9,6 @@
     --grid-opacity: 0.05;
 }
 
-:root.light {
-    --background: #f8fafc;
-    --primary: #0f172a;
-    --secondary: #0d9488;
-    --muted: #475569;
-    --grid-color: 13, 148, 136;
-    --grid-opacity: 0.1;
-}
 
 @theme {
     --color-background: var(--background);

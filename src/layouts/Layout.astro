@@ -18,6 +18,12 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Security Headers (Meta Tags) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
     <link rel="preload" href="/fonts/lmmono10-regular.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="/fonts/lmmonolt10-bold.woff" as="font" type="font/woff" crossorigin>
     

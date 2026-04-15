@@ -61,12 +61,12 @@ const projects = [
             </h3>
             <div class="flex gap-4 mt-4">
               {project.githubUrl && (
-                <a href={project.githubUrl} target="_blank" class="text-muted hover:text-secondary transition-colors" title="GitHub Repository">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-secondary transition-colors" title="GitHub Repository">
                   <Github size={20} />
                 </a>
               )}
               {project.linkedinUrl && (
-                <a href={project.linkedinUrl} target="_blank" class="text-muted hover:text-secondary transition-colors" title="LinkedIn Post">
+                <a href={project.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-secondary transition-colors" title="LinkedIn Post">
                   <Linkedin size={20} />
                 </a>
               )}

@@ -1,112 +1,69 @@
 ---
-import { ArrowDown, FileText } from 'lucide-react';
 ---
 
-<section id="home" class="min-h-screen flex flex-col justify-center relative px-4 pt-20 overflow-hidden grid-bg">
-  <div id="progress-bar"></div>
-  <!-- Top Navigation -->
-  <div class="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-50">
-    <span class="text-xl font-bold tracking-tighter text-primary">AJVAD N.</span>
-    <div class="flex items-center gap-4">
-      <a 
-        href="/docs/resume.pdf" 
-        target="_blank"
-        class="flex items-center gap-2 px-6 py-2 bg-secondary text-background rounded-full font-medium hover:bg-primary hover:text-background transition-colors duration-300 magnetic"
-      >
-        <FileText className="w-4 h-4" />
-        <span>Resume</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center z-10">
-    <!-- Profile Photo (Left Side) -->
-    <div class="order-1 relative flex justify-center lg:justify-start">
-      <div class="relative w-64 h-64 md:w-96 md:h-96 group">
-        <!-- Corner Accents -->
-        <div class="corner-marker corner-tl group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-        <div class="corner-marker corner-tr group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-        <div class="corner-marker corner-bl group-hover:-translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
-        <div class="corner-marker corner-br group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
-        
-        <div class="relative w-full h-full overflow-hidden border border-white/5 rounded-2xl">
-            <img 
-            src="/images/profile.jpg" 
-            alt="AJVAD N" 
-            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 image-mask opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0 rounded-2xl"
-            />
+<section id="home" class="min-h-screen flex flex-col justify-center relative px-6 pt-20 overflow-hidden">
+  <div class="max-w-6xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+      <div class="flex-1 max-w-3xl">
+        <div class="flex items-center gap-2 mb-6 reveal" style="transition-delay: 0s;">
+          <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+          <span class="text-lg text-text-quaternary font-mono">Cybersecurity Analyst</span>
         </div>
-        
-        <!-- Background decorative element -->
-        <div class="absolute -inset-4 bg-secondary/5 blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-      </div>
-    </div>
 
-    <!-- Text Content (Right Side) -->
-    <div class="order-2">
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-1.056px] leading-[1.05] mb-6 text-text-primary reveal" style="transition-delay: 0.1s;">
+          AJVAD N.
+        </h1>
 
-      <h1 class="text-6xl md:text-[12vw] leading-[0.9] md:leading-[0.8] font-bold mb-8 tracking-tighter text-primary">
-        <span class="glitch inline-block" data-text="AJVAD">AJVAD</span><br/>
-        <span class="text-secondary glitch inline-block" data-text="N.">N.</span>
-      </h1>
-      
-      <div class="flex flex-col gap-8 max-w-xl">
-        <p class="text-2xl md:text-3xl text-muted font-light tracking-wide leading-snug">
-          <span id="typewriter" class="typewriter-cursor"></span>
+        <p class="text-2xl md:text-3xl text-text-tertiary leading-relaxed max-w-xl mb-10 reveal" style="transition-delay: 0.2s;">
+          Bug bounty hunter with findings across Indian govt &amp; private platforms. Building tools for recon and red teaming.
         </p>
-        
-        <script>
-          const text = "Cybersecurity Analyst & Ethical Hacker";
-          const element = document.getElementById('typewriter');
-          let i = 0;
-          
-          function typeWriter() {
-            if (i < text.length) {
-              element.innerHTML += text.charAt(i);
-              i++;
-              setTimeout(typeWriter, 50);
-            } else {
-                // Optional: Highlight "Ethical Hacker" after typing
-                element.innerHTML = element.innerHTML.replace("Ethical Hacker", "<span class='text-primary'>Ethical Hacker</span>");
-            }
-          }
-          
-          // Start typing when the page loads
-          window.addEventListener('load', typeWriter);
 
-          // Progress Bar Script
-          window.addEventListener('scroll', () => {
-            const h = document.documentElement, 
-                  b = document.body,
-                  st = 'scrollTop',
-                  sh = 'scrollHeight';
-            const percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-            const pb = document.getElementById('progress-bar');
-            if (pb) pb.style.width = percent + '%';
-          });
-        </script>
-        
-        <div class="flex flex-wrap gap-6">
-          <a 
-            href="#projects"
-            class="group relative inline-flex items-center gap-3 text-lg font-medium text-primary hover:text-secondary transition-colors"
-          >
-            <span class="h-px w-8 bg-primary group-hover:w-12 transition-all duration-300"></span>
-            View Work
+        <div class="flex flex-wrap gap-3 reveal" style="transition-delay: 0.3s;">
+          <a href="#projects" class="btn btn-primary">
+            <span>View Projects</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a 
-            href="#contact"
-            class="group relative inline-flex items-center gap-3 text-lg font-medium text-muted hover:text-primary transition-colors"
-          >
-            <span class="h-px w-8 bg-muted group-hover:w-12 transition-all duration-300"></span>
-            Contact Me
+          <a href="#contact" class="btn btn-ghost">
+            Get in Touch
           </a>
+        </div>
+
+        <div class="flex gap-8 mt-12 pt-8 reveal" style="transition-delay: 0.4s;">
+          <div class="card p-4 flex items-center gap-3 min-w-0">
+            <span class="text-2xl font-bold text-accent shrink-0">5+</span>
+            <div>
+              <p class="text-xs text-text-quaternary">Platforms</p>
+              <p class="text-xs text-text-tertiary">NCIIPC &middot; Max &middot; Nykaa &middot; Maruti</p>
+            </div>
+          </div>
+          <div class="card p-4 flex items-center gap-3 min-w-0">
+            <span class="text-2xl font-bold text-accent shrink-0">3</span>
+            <div>
+              <p class="text-xs text-text-quaternary">Hall of Fame</p>
+              <p class="text-xs text-text-tertiary">Max &middot; Nykaa &middot; Maruti Suzuki</p>
+            </div>
+          </div>
+          <div class="card p-4 flex items-center gap-3 min-w-0">
+            <span class="text-2xl font-bold text-accent shrink-0">₹6K+</span>
+            <div>
+              <p class="text-xs text-text-quaternary">Bounties</p>
+              <p class="text-xs text-text-tertiary">Nykaa &middot; Maruti Suzuki</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shrink-0 reveal" style="transition-delay: 0.2s;">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-full" style="background: radial-gradient(circle, rgba(92,92,255,0.2) 0%, transparent 70%); transform: scale(1.15);"></div>
+          <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-1" style="border: 1px solid rgba(92,92,255,0.15);">
+            <img src="/images/profile.jpg" alt="AJVAD N." class="w-full h-full object-cover" style="filter: grayscale(40%) contrast(110%) brightness(105%);" />
+            <div class="absolute inset-0 rounded-full mix-blend-overlay pointer-events-none" style="background: linear-gradient(135deg, rgba(92,92,255,0.1), transparent 60%);"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="absolute bottom-8 left-4 md:left-12 animate-bounce duration-[2000ms]">
-    <ArrowDown className="w-6 h-6 text-primary/50" />
+    <div class="fixed top-1/3 right-0 w-[800px] h-[800px] rounded-full pointer-events-none -z-10" style="background: radial-gradient(circle, rgba(92,92,255,0.04) 0%, transparent 70%); animation: pulse-glow 4s ease-in-out infinite;"></div>
   </div>
 </section>

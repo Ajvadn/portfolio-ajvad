@@ -10,34 +10,37 @@ import Contact from '../components/sections/Contact.astro';
 ---
 
 <Layout title="AJVAD N | Cybersecurity Analyst">
-	<main class="bg-background min-h-screen">
-		<Hero />
-		<About />
-		<Achievements />
-		<Projects />
-		<Certifications />
-		<Education />
-		<Contact />
-	</main>
+  <main class="bg-bg-primary min-h-screen">
+    <Hero />
+    <About />
+    <Achievements />
+    <Projects />
+    <Certifications />
+    <Education />
+    <Contact />
+  </main>
 </Layout>
 
 <script>
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        observer.unobserve(entry.target); // Only animate once
+        observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { root: null, rootMargin: '0px', threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal-stagger').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 </script>

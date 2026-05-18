@@ -19,55 +19,121 @@ const { title, description = "Cybersecurity Analyst & Ethical Hacker Portfolio" 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Security Headers (Meta Tags) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="theme-color" content="#000000" />
 
-    <link rel="preload" href="/fonts/lmmono10-regular.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/lmmonolt10-bold.woff" as="font" type="font/woff" crossorigin>
-    
+    <meta name="keywords" content="cybersecurity, ethical hacking, bug bounty, penetration testing, security researcher" />
 
-    <!-- Open Graph / SEO -->
+    <link rel="preload" href="/fonts/lmmono8-regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/fonts/lmmonolt10-bold.otf" as="font" type="font/otf" crossorigin>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:image" content="https://ajvadn.vercel.app/images/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ajvad N",
+      "jobTitle": "Cybersecurity Analyst",
+      "url": "https://ajvadn.vercel.app",
+      "sameAs": [
+        "https://github.com/Ajvadn",
+        "https://www.linkedin.com/in/ajvad-n/"
+      ]
+    })} />
   </head>
-  <body class="bg-background text-primary antialiased selection:bg-white/20 overflow-x-hidden relative">
-    <div id="global-spotlight" class="spotlight"></div>
-    <!-- Ambient Background Glow -->
-    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-      <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
-    </div>
+  <body class="bg-bg-primary text-text-primary antialiased overflow-x-hidden">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-b-border-subtle" style="border-bottom-color: rgba(255,255,255,0.05)">
+      <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="text-lg md:text-xl font-bold text-text-primary hover:text-accent transition-colors tracking-tight">
+          AJVAD N.
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-base" data-nav>About</a>
+          <a href="#projects" class="nav-link text-base" data-nav>Projects</a>
+          <a href="#achievements" class="nav-link text-base" data-nav>Achievements</a>
+          <a href="#contact" class="nav-link text-base" data-nav>Contact</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-text-tertiary hover:text-text-primary p-2" aria-label="Menu">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="md:hidden hidden border-t border-t-border-subtle bg-bg-primary/95 backdrop-blur-md" style="border-top-color: rgba(255,255,255,0.05)">
+        <div class="px-6 py-5 flex flex-col gap-4">
+          <a href="#about" class="text-base text-text-tertiary hover:text-text-primary transition-colors" data-mobile-link>About</a>
+          <a href="#projects" class="text-base text-text-tertiary hover:text-text-primary transition-colors" data-mobile-link>Projects</a>
+          <a href="#achievements" class="text-base text-text-tertiary hover:text-text-primary transition-colors" data-mobile-link>Achievements</a>
+          <a href="#contact" class="text-base text-text-tertiary hover:text-text-primary transition-colors" data-mobile-link>Contact</a>
+        </div>
+      </div>
+    </header>
+
     <main>
       <slot />
     </main>
-    <script>
-      const spotlight = document.getElementById('global-spotlight');
-      window.addEventListener('mousemove', (e) => {
-        if (spotlight) {
-          spotlight.style.setProperty('--x', `${e.clientX}px`);
-          spotlight.style.setProperty('--y', `${e.clientY}px`);
-        }
-      });
 
-      // Magnetic Effect
-      const magnets = document.querySelectorAll('.magnetic');
-      magnets.forEach((magnet) => {
-        magnet.addEventListener('mousemove', (e) => {
-          const m = magnet as HTMLElement;
-          const rect = m.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          m.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    <div id="lightbox-overlay">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <div id="scroll-top" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </div>
+
+    <script>
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
         });
-        magnet.addEventListener('mouseleave', () => {
-          const m = magnet as HTMLElement;
-          m.style.transform = 'translate(0px, 0px)';
+        document.querySelectorAll('[data-mobile-link]').forEach(link => {
+          link.addEventListener('click', () => menu.classList.add('hidden'));
         });
-      });
+      }
+
+      const overlay = document.getElementById('lightbox-overlay');
+      const lightboxImg = document.getElementById('lightbox-img');
+      if (overlay && lightboxImg) {
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('.lightbox-btn');
+          if (target) {
+            lightboxImg.src = target.src;
+            lightboxImg.alt = target.alt;
+            overlay.classList.add('open');
+          }
+        });
+        overlay.addEventListener('click', () => overlay.classList.remove('open'));
+      }
+
+      const scrollBtn = document.getElementById('scroll-top');
+      if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+          scrollBtn.classList.toggle('visible', window.scrollY > 300);
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      const navLinks = document.querySelectorAll('[data-nav]');
+      const sections = ['about', 'projects', 'achievements', 'contact'];
+      if (navLinks.length) {
+        window.addEventListener('scroll', () => {
+          let current = '';
+          for (const id of sections) {
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top <= 200) current = id;
+          }
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+          });
+        });
+      }
     </script>
   </body>
 </html>

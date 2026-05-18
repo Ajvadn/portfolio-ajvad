@@ -1,57 +1,62 @@
-
 ---
-import { Mail, Github, Linkedin, Instagram, FileText, Phone, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 ---
 
-<section id="contact" class="py-16 md:py-32 px-4 reveal">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-5xl md:text-[10vw] font-bold text-primary mb-12 tracking-tighter">
-      LET'S TALK
-    </h2>
-    
-    <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 mb-16">
-      <a 
-        href="mailto:&#97;&#106;&#118;&#97;&#100;&#97;&#106;&#117;&#50;&#48;&#48;&#51;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" 
-        class="text-2xl md:text-3xl text-muted hover:text-secondary transition-colors duration-300 border-b border-primary/20 pb-2 hover:border-secondary"
+<section id="contact" class="py-24 px-6 reveal">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <span class="section-label">Contact</span>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold tracking-[-0.704px] mb-6 text-text-primary">
+        Get in <span class="gradient-text">Touch</span>
+      </h2>
+
+      <p class="text-lg text-text-tertiary mb-10 leading-relaxed">
+        Have a security concern or want to collaborate? Let's talk.
+      </p>
+
+      <a
+        href="mailto:&#97;&#106;&#118;&#97;&#100;&#97;&#106;&#117;&#50;&#48;&#48;&#51;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+        class="btn btn-primary mb-12 inline-flex"
       >
-        &#97;&#106;&#118;&#97;&#100;&#97;&#106;&#117;&#50;&#48;&#48;&#51;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+        Send an Email
       </a>
+
+      <div class="flex justify-center gap-3 mt-12">
+        <a
+          href="https://github.com/Ajvadn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-hover p-3"
+          aria-label="GitHub"
+        >
+          <Github size={22} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ajvad-n/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-hover p-3"
+          aria-label="LinkedIn"
+        >
+          <Linkedin size={22} />
+        </a>
+        <a
+          href="https://instagram.com/ajvad______"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-hover p-3"
+          aria-label="Instagram"
+        >
+          <Instagram size={22} />
+        </a>
+      </div>
     </div>
 
-
-
-    <div class="flex justify-center gap-8 mt-16 mb-32">
-      <a 
-        href="https://github.com/Ajvadn" 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-4 rounded-full bg-primary/5 border border-primary/10 text-muted hover:text-primary hover:bg-secondary hover:border-secondary hover:scale-110 transition-all duration-300"
-        aria-label="GitHub"
-      >
-        <Github className="w-6 h-6" />
-      </a>
-      <a 
-        href="https://www.linkedin.com/in/ajvad-n/" 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-4 rounded-full bg-primary/5 border border-primary/10 text-muted hover:text-primary hover:bg-secondary hover:border-secondary hover:scale-110 transition-all duration-300"
-        aria-label="LinkedIn"
-      >
-        <Linkedin className="w-6 h-6" />
-      </a>
-      <a 
-        href="https://instagram.com/ajvad______" 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-4 rounded-full bg-primary/5 border border-primary/10 text-muted hover:text-primary hover:bg-secondary hover:border-secondary hover:scale-110 transition-all duration-300"
-        aria-label="Instagram"
-      >
-        <Instagram className="w-6 h-6" />
-      </a>
-    </div>
-
-    <footer class="text-muted/60 text-sm font-light">
-      <p>&copy; {new Date().getFullYear()} AJVAD N. All rights reserved.</p>
+    <footer class="mt-24 text-center">
+      <p class="text-base text-text-quaternary">&copy; {new Date().getFullYear()} AJVAD N.</p>
     </footer>
   </div>
 </section>

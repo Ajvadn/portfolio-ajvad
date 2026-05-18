@@ -1,62 +1,79 @@
 ---
 import Badge from '../ui/Badge.astro';
-import Terminal from '../ui/Terminal.astro';
 
-const skills = [
-  "Network Security", "Penetration Testing", "Python", "Linux", 
-  "Bash Scripting", "Wireshark", "Burp Suite", "Metasploit"
+const skillGroups = [
+  {
+    label: "Core Security",
+    items: ["Web Application Pentesting", "Bug Bounty Hunting", "Network Security", "Red Teaming"]
+  },
+  {
+    label: "Languages",
+    items: ["Python", "Bash", "Go"]
+  },
+  {
+    label: "Tools",
+    items: ["Burp Suite", "Nuclei", "SQLMap", "Wireshark"]
+  },
+  {
+    label: "Specialized",
+    items: ["Subdomain Enumeration", "Social Engineering", "WiFi Pentesting", "IoT Security"]
+  }
 ];
 
 const experience = [
   {
-    role: "Cybersecurity Intern",
-    company: "The RedUsers",
-    period: "July - August",
-    desc: "Focused on Web Application Penetration Testing and Vulnerability Assessment."
+    role: "Bug Hunter",
+    company: "NCIIPC, Max Healthcare, Nykaa",
+    period: "2025 — Present",
+    desc: "Identified and responsibly disclosed vulnerabilities in Indian government and private sector platforms."
   }
 ];
 ---
 
-<section id="about" class="py-32 px-4 relative reveal">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(180px,auto)]">
-      
-      <!-- Bio Block -->
-      <div class="md:col-span-8 p-8 border border-primary/10 relative group hover:border-secondary/30 transition-colors duration-500">
-        <h2 class="text-4xl font-bold mb-6 text-primary">About Me</h2>
-        <p class="text-xl text-muted leading-relaxed max-w-2xl">
-          I'm a cybersecurity analyst passionate about securing digital infrastructures. 
-          My work bridges the gap between <span class="text-primary font-medium">offensive security</span> and 
-          <span class="text-primary font-medium">defensive strategies</span>.
-        </p>
-      </div>
+<section id="about" class="py-24 px-6 reveal">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-16">
+      <span class="section-label">About</span>
+    </div>
 
-      <!-- Experience Block -->
-      <div class="md:col-span-4 p-8 border border-primary/10 flex flex-col justify-between group hover:border-secondary/30 transition-colors duration-500">
-        <span class="text-sm text-muted uppercase tracking-widest">Experience</span>
-        <div class="mt-4">
-            <h3 class="text-xl font-bold text-primary">{experience[0].role}</h3>
-            <p class="text-secondary">{experience[0].company}</p>
-            <p class="text-sm text-muted mt-1">{experience[0].period}</p>
-            <p class="text-sm text-muted mt-2">{experience[0].desc}</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="md:col-span-2 card p-8">
+        <h3 class="text-xl font-bold mb-4 text-text-primary">Hi, I'm Ajvad</h3>
+        <p class="text-lg text-text-tertiary leading-relaxed">
+          A cybersecurity analyst and bug bounty hunter from Malappuram, Kerala. I hunt vulnerabilities across Indian government and private sector platforms, building security tools to automate reconnaissance and red team operations.
+        </p>
+        <div class="mt-6 flex items-center gap-4">
+          <img src="/images/profile.jpg" alt="Profile" class="w-12 h-12 rounded-full object-cover" style="border: 1px solid rgba(255,255,255,0.08); filter: grayscale(40%) contrast(110%) brightness(105%);" />
+          <div>
+            <p class="text-sm text-text-primary font-bold">Active on</p>
+            <p class="text-sm text-text-tertiary">NCIIPC &middot; Max Healthcare &middot; Nykaa &middot; Maruti Suzuki</p>
+          </div>
         </div>
       </div>
 
-      <!-- Skills Block -->
-      <div class="md:col-span-5 p-8 border border-primary/10 group hover:border-secondary/30 transition-colors duration-500">
-        <span class="text-sm text-muted uppercase tracking-widest mb-8 block">Core Skills</span>
-        <div class="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <Badge text={skill} />
+      <div class="card p-6">
+        <span class="text-base text-text-quaternary">Experience</span>
+        <div class="mt-4">
+          <h4 class="text-lg font-bold text-text-primary">{experience[0].role}</h4>
+          <p class="text-base text-accent mt-0.5">{experience[0].company}</p>
+          <p class="text-base text-text-quaternary mt-1">{experience[0].period}</p>
+          <p class="text-base text-text-tertiary mt-3 leading-relaxed">{experience[0].desc}</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-3 card p-6">
+        <span class="text-base text-text-quaternary">Core Skills</span>
+        <div class="mt-4 space-y-4">
+          {skillGroups.map(group => (
+            <div>
+              <p class="text-xs text-text-quaternary mb-2">{group.label}</p>
+              <div class="flex flex-wrap gap-2">
+                {group.items.map(skill => <Badge text={skill} />)}
+              </div>
+            </div>
           ))}
         </div>
       </div>
-
-      <!-- Terminal Block -->
-      <div class="md:col-span-7 group transition-all duration-500">
-        <Terminal />
-      </div>
-
     </div>
   </div>
 </section>

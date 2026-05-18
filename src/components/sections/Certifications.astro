@@ -1,7 +1,5 @@
 ---
 const certifications = [
-
-
   {
     title: "Certified Ethical Hacker (CEH)",
     issuer: "EC-Council",
@@ -9,7 +7,6 @@ const certifications = [
     image: "/images/ceh-cert.png",
     description: "Mastered the latest ethical hacking tools and techniques to identify vulnerabilities and secure systems."
   },
-
   {
     title: "Google Cybersecurity Certificate",
     issuer: "Google",
@@ -20,40 +17,33 @@ const certifications = [
 ];
 ---
 
-<section id="certifications" class="py-16 md:py-32 px-4 reveal">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-sm text-muted uppercase tracking-widest mb-16">Certifications</h2>
+<section id="certifications" class="py-24 px-6 reveal">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-16">
+      <span class="section-label">Certifications</span>
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 reveal-stagger">
       {certifications.map((cert) => (
-        <div class="group border border-primary/10 bg-primary/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden">
-          <!-- Image Container -->
-          <div class="aspect-[4/3] w-full bg-black/50 overflow-hidden relative">
-             {cert.image.includes('placeholder') ? (
-               <div class="absolute inset-0 flex items-center justify-center text-muted/20 font-mono text-4xl font-bold group-hover:scale-110 transition-transform duration-700">
-                  CERT
-               </div>
-             ) : (
-               <img src={cert.image} alt={cert.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
-             )}
+        <div class="card-hover overflow-hidden group">
+          <div class="aspect-[4/3] overflow-hidden" style="background: #050505;">
+            <img
+              src={cert.image}
+              alt={cert.title}
+              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 lightbox-btn"
+            />
           </div>
-          
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-4">
+          <div class="p-5">
+            <div class="flex items-start justify-between mb-2">
               <div>
-                <h3 class="text-xl font-bold text-primary group-hover:text-secondary transition-colors duration-300 line-clamp-2">
+                <h3 class="text-lg font-bold text-text-primary group-hover:text-accent transition-colors">
                   {cert.title}
                 </h3>
-                <p class="text-sm text-muted mt-1">{cert.issuer}</p>
+                <p class="text-base text-text-tertiary mt-0.5">{cert.issuer}</p>
               </div>
-              <span class="text-xs font-mono text-muted/60 border border-primary/10 px-2 py-1 rounded-full">
-                {cert.date}
-              </span>
+              <span class="text-base text-text-quaternary whitespace-nowrap ml-4">{cert.date}</span>
             </div>
-            
-            <p class="text-muted text-sm leading-relaxed line-clamp-3 group-hover:text-primary/80 transition-colors">
-              {cert.description}
-            </p>
+            <p class="text-base text-text-tertiary leading-relaxed">{cert.description}</p>
           </div>
         </div>
       ))}

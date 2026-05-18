@@ -1,93 +1,85 @@
 ---
-import Badge from '../ui/Badge.astro';
-import { ExternalLink, Github, Linkedin } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
     title: "Subdomain Hunter",
-    description: "Automated subdomain enumeration tool designed to discover hidden assets and expand attack surfaces during reconnaissance.",
+    description: "Automated subdomain enumeration tool for discovering hidden assets and expanding attack surfaces during reconnaissance.",
     technologies: ["Bash", "Bug Bounty", "Recon"],
     githubUrl: "https://github.com/Ajvadn/subdomain-hunter.git"
   },
   {
     title: "parm-fuzzer",
-    description: "Efficient URL gathering tool designed to collect and organize URLs from various sources for comprehensive reconnaissance.",
+    description: "Efficient URL gathering tool to collect and organize URLs from various sources for comprehensive reconnaissance.",
     technologies: ["Go", "Recon", "Fuzzing"],
     githubUrl: "https://github.com/Ajvadn/parm-fuzzer.git"
   },
   {
     title: "Drooper",
-    description: "Advanced social engineering tool designed for penetration testing to generate and deliver payloads via various attack vectors.",
+    description: "Advanced social engineering tool for penetration testing to generate and deliver payloads via various attack vectors.",
     technologies: ["Python", "Social Engineering", "Red Teaming"],
     githubUrl: "https://github.com/Ajvadn/Drooper"
   },
   {
     title: "Deauther & Evil Twin",
-    description: "Wi-Fi deauthentication and Evil Twin simulation tool using ESP32/ESP8266 for wireless security research and WPA2/WPA3 hardening.",
+    description: "Wi-Fi deauthentication and Evil Twin simulation tool using ESP32/ESP8266 for wireless security research.",
     technologies: ["WiFi Pentesting", "IoT", "ESP32/ESP8266"],
     githubUrl: "https://github.com/Ajvadn",
-    linkedinUrl: "https://www.linkedin.com/posts/ajvad-n_cybersecurity-wifisecurity-ethicalhacking-activity-7264682031689719809-0jvu?utm_source=share&utm_medium=member_android&rcm=ACoAADjre1kBKBXIhn6NE1nYSDmy-UV_M9tMGT4"
+    linkedinUrl: "https://www.linkedin.com/posts/ajvad-n_cybersecurity-wifisecurity-ethicalhacking-activity-7264682031689719809-0jvu"
   },
   {
     title: "HID Attacks (ATtiny85)",
-    description: "Firmware for ATtiny85 to emulate USB HID devices for controlled security testing, keystroke injection, and endpoint resilience evaluation.",
+    description: "Firmware for ATtiny85 to emulate USB HID devices for controlled security testing and keystroke injection.",
     technologies: ["Ethical Hacking", "IoT", "Embedded Systems"],
     githubUrl: "https://github.com/Ajvadn"
   },
   {
     title: "VOICEGPT",
-    description: "Research on ChatGPT's role in improving communicative competence and the future of AI in education and language learning.",
-    technologies: ["AI/ML", "Python", "Problem Solving"],
+    description: "Research on ChatGPT's role in improving communicative competence and the future of AI in education.",
+    technologies: ["AI/ML", "Python"],
     githubUrl: "https://github.com/Ajvadn"
   }
 ];
 ---
 
-<section id="projects" class="py-12 md:py-24 px-4 reveal">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex items-end justify-between mb-12">
-      <h2 class="text-sm text-muted uppercase tracking-widest">Selected Works</h2>
-      <span class="text-sm text-muted">2023 — Present</span>
+<section id="projects" class="py-24 px-6 reveal">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-16">
+      <span class="section-label">Projects</span>
     </div>
 
-    <div class="flex flex-col">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 reveal-stagger">
       {projects.map((project) => (
-        <div 
-          class="group border-t border-primary/10 py-8 flex flex-col md:flex-row md:items-baseline justify-between hover:bg-primary/5 transition-all duration-500 px-4 relative"
-        >
-          <div class="md:w-1/2">
-            <h3 class="text-2xl md:text-3xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
+        <div class="card-hover p-5 flex flex-col group">
+          <div class="flex-1">
+            <h3 class="text-lg font-bold text-text-primary group-hover:text-accent transition-colors mb-2">
               {project.title}
             </h3>
-            <div class="flex gap-4 mt-4">
+            <p class="text-base text-text-tertiary leading-relaxed mb-4">
+              {project.description}
+            </p>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex flex-wrap gap-1.5">
+              {project.technologies.map(tag => (
+                <span class="tag text-xs">{tag}</span>
+              ))}
+            </div>
+            <div class="flex gap-2 shrink-0 ml-4">
               {project.githubUrl && (
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-secondary transition-colors" title="GitHub Repository">
-                  <Github size={20} />
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="text-text-tertiary hover:text-accent transition-colors">
+                  <Github size={18} />
                 </a>
               )}
               {project.linkedinUrl && (
-                <a href={project.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-secondary transition-colors" title="LinkedIn Post">
-                  <Linkedin size={20} />
+                <a href={project.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-text-tertiary hover:text-accent transition-colors">
+                  <ExternalLink size={18} />
                 </a>
               )}
-            </div>
-          </div>
-          
-          <div class="md:w-1/2 flex flex-col md:flex-row justify-between items-end md:items-baseline mt-4 md:mt-0">
-            <p class="text-muted max-w-xs text-right md:text-left mb-4 md:mb-0 group-hover:text-primary transition-colors">
-              {project.description}
-            </p>
-            <div class="flex gap-2 flex-wrap justify-end md:justify-start">
-              {project.technologies.map(tag => (
-                <span class="text-xs font-mono text-muted border border-primary/10 px-2 py-1 rounded-full whitespace-nowrap">
-                  {tag}
-                </span>
-              ))}
             </div>
           </div>
         </div>
       ))}
-      <div class="border-t border-primary/10"></div>
     </div>
   </div>
 </section>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" fill="none">
+  <rect width="1200" height="630" fill="#000"/>
+  <rect x="48" y="48" width="1104" height="534" rx="12" fill="#050505" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="80" y="220" font-family="monospace" font-size="72" font-weight="bold" fill="#f7f8f8">AJVAD N.</text>
+  <text x="80" y="290" font-family="monospace" font-size="32" fill="#8a8f98">Cybersecurity Analyst &amp; Bug Hunter</text>
+  <rect x="80" y="340" width="8" height="8" rx="4" fill="#5c5cff"/>
+  <text x="100" y="350" font-family="monospace" font-size="22" fill="#5c5cff">NCIIPC · Max Healthcare · Nykaa · Maruti Suzuki</text>
+</svg>

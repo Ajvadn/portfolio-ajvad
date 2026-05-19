@@ -19,6 +19,8 @@ pnpm-debug.log*
 # macos
 .DS_Store
 
+.od-skills/
+
 # editor
 .vscode/
 !.vscode/settings.json

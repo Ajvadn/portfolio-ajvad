@@ -182,11 +182,15 @@ h1, h2, h3, h4 { text-wrap: balance; }
 
 /* ─── reveal ─── */
 .reveal {
+  opacity: 0;
+  transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1393,23 +1397,11 @@ h1, h2, h3, h4 { text-wrap: balance; }
   const revealEls = document.querySelectorAll('.reveal');
   const staggerEls = document.querySelectorAll('.reveal-stagger');
 
-  revealEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; });
-
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (entry.target.classList.contains('reveal-stagger')) {
-            entry.target.classList.add('visible');
-            entry.target.querySelectorAll(':scope > *').forEach(c => {
-              c.style.opacity = '';
-              c.style.transform = '';
-            });
-          } else {
-            entry.target.style.opacity = '';
-            entry.target.style.transform = '';
-            entry.target.classList.add('visible');
-          }
+          entry.target.classList.add('visible');
           obs.unobserve(entry.target);
         }
       });
@@ -1417,6 +1409,12 @@ h1, h2, h3, h4 { text-wrap: balance; }
 
     revealEls.forEach(el => obs.observe(el));
     staggerEls.forEach(el => obs.observe(el));
+
+    /* fallback: show everything after 3s if observer never fires (iframe preview) */
+    setTimeout(function(){
+      revealEls.forEach(function(el){ if(!el.classList.contains('visible')) el.classList.add('visible'); });
+      staggerEls.forEach(function(el){ if(!el.classList.contains('visible')) el.classList.add('visible'); });
+    }, 3000);
   } else {
     revealEls.forEach(el => el.classList.add('visible'));
     staggerEls.forEach(el => el.classList.add('visible'));
@@ -1460,7 +1458,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
     'skills --list': [ '<span class="terminal-bullet">›</span>Web app pentesting · Network security · Red teaming', '<span class="terminal-bullet">›</span>Python · Bash · Go · Burp Suite · Nuclei', '<span class="terminal-bullet">›</span>Social engineering · WiFi/IoT security · Subdomain recon' ],
     achievements: [ '<span class="terminal-bullet">›</span><strong>14+</strong> confirmed findings across 4 programs', '<span class="terminal-bullet">›</span><strong>3×</strong> Hall of Fame — Max Healthcare, Nykaa, Maruti Suzuki', '<span class="terminal-bullet">›</span><strong>₹6K+</strong> bounties · NCIIPC acknowledgment', '<span class="terminal-bullet">›</span>Certified Ethical Hacker (CEH) · Google Cybersecurity' ],
     contact: [ '<span class="terminal-bullet">›</span>Email: <strong>ajvadn0@gmail.com</strong>', '<span class="terminal-bullet">›</span>GitHub: <strong>github.com/Ajvadn</strong>', '<span class="terminal-bullet">›</span>LinkedIn: <strong>linkedin.com/in/ajvad-n</strong>' ],
-    projects: [ '<span class="terminal-bullet">›</span><strong>VulnScout</strong> — automated recon &amp; vulnerability scanner', '<span class="terminal-bullet">›</span><strong>Subdoman</strong> — subdomain enumeration &amp; takeover detection', '<span class="terminal-bullet">›</span><strong>DarkVision</strong> — information gathering framework', '<span class="terminal-bullet">›</span>Check GitHub for full project list' ],
+    projects: [ '<span class="terminal-bullet">›</span><strong>Subdomain Hunter</strong> — automated subdomain enumeration &amp; recon', '<span class="terminal-bullet">›</span><strong>parm-fuzzer</strong> — URL gathering &amp; parameter fuzzing tool', '<span class="terminal-bullet">›</span><strong>Drooper</strong> — social engineering &amp; payload delivery toolkit', '<span class="terminal-bullet">›</span><strong>Deauther &amp; Evil Twin</strong> — WiFi security testing with ESP32' ],
     neofetch: [ '<span class="terminal-success">ajvad@cybersec</span>', '<span class="terminal-bullet">›</span><span class="terminal-info">OS:</span> Arch Linux · Kali', '<span class="terminal-bullet">›</span><span class="terminal-info">Shell:</span> zsh 5.9', '<span class="terminal-bullet">›</span><span class="terminal-info">Editor:</span> Neovim · VS Code', '<span class="terminal-bullet">›</span><span class="terminal-info">Focus:</span> Web sec · Red team · Bug bounty' ],
     ls: [ '<span style="color:var(--accent);">about/</span>   <span style="color:var(--accent);">skills/</span>   <span style="color:var(--accent);">achievements/</span>', '<span style="color:var(--accent);">projects/</span>   <span style="color:var(--accent);">certs/</span>   <span style="color:var(--accent);">contact/</span>' ],
     'cat /etc/hostname': [ 'ajvad-box' ],
